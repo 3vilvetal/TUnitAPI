@@ -1,9 +1,12 @@
 package rest;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 //Plain old Java Object it does not extend as class or implements 
 //an interface
@@ -20,24 +23,35 @@ public class HelloRest {
 
 	// This method is called if TEXT_PLAIN is request
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	public String sayPlainTextHello() {
-		return "Hello Jersey";
+		return "{ \"message\": \"Hello TUnit txt\"}";
 	}
 	
 	// This method is called if XML is request
 	@GET
 	@Produces(MediaType.TEXT_XML)
 	public String sayXMLHello() {
-		return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
+		return "<?xml version=\"1.0\"?>" + "<hello> Hello TUnit XML" + "</hello>";
 	}
 	
 	// This method is called if HTML is request
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String sayHtmlHello() {
-		return "<html> " + "<title>" + "Hello Jersey" + "</title>"
-				+ "<body><h1>" + "Hello Jersey" + "</body></h1>" + "</html> ";
+		return "<html> " + "<title>" + "Hello TUnit" + "</title>"
+				+ "<body><h1>" + "Hello TUnit HTML" + "</body></h1>" + "</html> ";
+	}
+	
+	@POST
+	@Path("/post")
+	@Consumes(MediaType.TEXT_PLAIN)
+	public Response createTrackInJSON(String track) {
+ 
+		String result = "Track saved : " + track;
+		System.out.println(result);
+		return Response.status(201).entity(result).build();
+ 
 	}
 
 } 
