@@ -40,7 +40,7 @@ public class HelloRest {
 	@Produces(MediaType.TEXT_HTML)
 	public String sayHtmlHello() {
 		return "<html> " + "<title>" + "Hello TUnit" + "</title>"
-				+ "<body><h1>" + "Hello TUnit HTML" + "</body></h1>" + "</html> ";
+				+ "<body><h1>" + "Hello TUnit HTML NEW version !!!" + "</body></h1>" + "</html> ";
 	}
 	
 	@POST
