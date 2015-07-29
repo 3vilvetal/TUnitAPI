@@ -45,7 +45,7 @@ public class HelloRest {
 	
 	@POST
 	@Path("/post")
-	@Consumes(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createTrackInJSON(String track) {
  
 		String result = "Track saved : " + track;

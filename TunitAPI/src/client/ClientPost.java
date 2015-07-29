@@ -13,7 +13,7 @@ public class ClientPost {
 		Client client = Client.create();
  
 		WebResource webResource = client
-		   .resource("http://localhost:8080/RESTfulExample/rest/json/metallica/post");
+		   .resource("http://localhost:8080/rest/hello/post");
  
 		String input = "{\"singer\":\"Metallica\",\"title\":\"Fade To Black\"}";
  
