@@ -8,6 +8,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import system.sql.JdbcUtils;
+
 //Plain old Java Object it does not extend as class or implements 
 //an interface
 
@@ -46,10 +51,25 @@ public class HelloRest {
 	@POST
 	@Path("/post")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response createTrackInJSON(String track) {
+	public Response createTrackInJSON(String track) throws JSONException {
  
 		String result = "Track saved : " + track;
 		System.out.println(result);
+		
+		JSONObject json = new JSONObject(track);
+		JSONObject testResult = json.getJSONObject("result");
+		
+		JdbcUtils dbUtils = new JdbcUtils();
+		dbUtils.insertResultsString(
+				testResult.getString("suite"), 
+				testResult.getString("name"), 
+				testResult.getString("status"), 
+				testResult.getString("result"), 
+				testResult.getString("message"), 
+				testResult.getString("expected"), 
+				testResult.getString("actual"), 
+				testResult.getString("error"));
+		
 		return Response.status(201).entity(result).build();
  
 	}
