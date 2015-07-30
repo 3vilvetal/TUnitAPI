@@ -1,10 +1,10 @@
 {"result":{
 		"suite":"livecams.web.tests.SmokeTest",
 		"name":"testRegistration",
-		"status": -1,
+		"status": "-1",
 		"message":"Statistics test was failed",
-		"expected_result":"Hello",
-		"actual_result":"Hellow",
+		"expected":"Hello",
+		"actual":"Hellow",
 		"result":"fail",
 		"error":"404 Not found",
 		"screenshot":"https://upload.wikimedia.org/wikipedia/en/d/df/Scrum_Framework.png",
