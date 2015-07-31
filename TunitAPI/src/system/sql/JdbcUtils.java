@@ -14,7 +14,7 @@ public class JdbcUtils {
 	 */
 		public static String dbName = "test_results";
 		private static String colums = "test_suite, test_name, test_status, test_message, expected_result, actual_result, test_result, error, screenshot, date";
-		public final static String CONNECTION_TEST_RESULTS_STRING = "jdbc:mysql://localhost:3306/" + dbName + "?user=root&password=111";
+		public final static String CONNECTION_TEST_RESULTS_STRING = "jdbc:mysql://127.0.0.1:3306/" + dbName + "?user=root&password=111";
 	
 		/**
 		 * Create new table for suite test results
